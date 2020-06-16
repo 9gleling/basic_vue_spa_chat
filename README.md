@@ -22,6 +22,8 @@ npm run build
 
 -src/models/dataModels.js 서버대신 사용하는 메소드(로직 및 기본 json data )
 
+-웹 구현으로 크롬 개발자 도구의 모바일모드(Toggle device toolbar)로 확인
+
 ## 기본 기능
 
 ### 기능 리스트
