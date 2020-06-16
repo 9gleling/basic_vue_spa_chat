@@ -1,28 +1,59 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <router-view>
+        </router-view>
+        <!-- <list v-bind:thema="thema" @parentChageThema="parentChageThema" /> -->
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// import List from '@/components/List.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+    data() {
+        return {
+            thema: 'purpleThema',
+        }
+    },
+    created() {
+        this.parentChageThema(this.thema);
+    },
+    components: {
+        // 'list': List,
+    },
+    methods: {
+        parentChageThema: function(themaType) {
+            
+            this.thema = themaType;
+
+            if(this.thema !== themaType)
+                import('./assets/css/'+this.thema+'.css');
+
+        }   
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+
+:root {
+    --purple: #5b36ac;
+    --white: #ffffff;
+    --pale-grey: #f9f9fb;
+    --charcoal-grey-two: #363a42;
+
 }
+
+
+/* 
+body {
+    margin: 0px;
+    background:#f9f9fb;
+} */
+
+/* #app {
+    background:#f9f9fb;
+    min-height: 700px;
+} */
 </style>
