@@ -113,6 +113,9 @@ export default {
     mounted() {
         setInterval(this.sendMsg, 5000);
     },
+    beforeDestroy(){
+        clearInterval(this.sendMsg);
+    }
 
 }
 </script>
